@@ -58,3 +58,25 @@ const ans=sum(1,2,displayResult);
 
 
 **************************************************************************
+
+function calcArithmetic(a,b,arithmeticFinalFunction){
+    const ans = arithmeticFinalFunction(a,b);
+    return ans;
+}
+
+function sum(a,b){
+    return a+b;
+}
+
+function minus(a,b){
+    return a-b;
+}
+
+
+
+const value = calcArithmetic(1,2,sum); //call by value here for sum part
+console.log(value); 
+
+**************************************************************************
+
+
