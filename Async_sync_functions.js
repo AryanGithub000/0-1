@@ -36,3 +36,35 @@ console.log("Hello world");
 //why is this async?
 //as it will proceed to print Hello World while it works on the function!!
 
+
+
+//Common async functions?
+//setTimeout
+//fs.readFile - to read a file from my file system
+//Fetch - to fetch some data from an API endpoint
+
+//fs.readFile
+const fs = require("fs"); //file system use here
+
+
+//async call
+//called later as takes time to exe
+//goes here last mei as 
+fs.readFile("a.txt","utf-8",function(err,data){
+    console.log(data);
+})
+
+console.log("HI"); //runs first as sync call 
+
+let a=0;
+//takes very long, longer than the file read
+for(let i=0;i<1000000000;i++){
+    a++;
+}
+
+console.log("Hi there 2");
+
+
+
+//How is JS keeping track of callbacks and what to run text?
+
