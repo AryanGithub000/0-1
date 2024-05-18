@@ -71,4 +71,4 @@ console.log("Hi there 2");
 //while this happens in our call stack sync runs
 //end mei puts in call stack so end mei async is printed basucally 
 
-
+//main use of callbacks is for async functions
