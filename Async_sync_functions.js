@@ -67,4 +67,8 @@ console.log("Hi there 2");
 
 
 //How is JS keeping track of callbacks and what to run text?
+//using web apis jaha async code runs and sends that to callback queue
+//while this happens in our call stack sync runs
+//end mei puts in call stack so end mei async is printed basucally 
+
 
