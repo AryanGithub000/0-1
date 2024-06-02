@@ -20,14 +20,14 @@ kiratsReadFile(onDone)
 
 
 //using our own async functions
-
+//why promises? => for callbacks use mainly
 const fs = require('fs');
 
 // my own asynchronous function
 function kiratsReadFile() {
   return new Promise(function(resolve) {
     fs.readFile("a.txt", "utf-8", function(err, data) {
-      resolve(data);
+      resolve(data); //what is passed here gets printed at .then(onDone) at line 40
     });
   })
 }
@@ -36,7 +36,7 @@ function kiratsReadFile() {
 function onDone(data) {
   console.log(data)
 }
-
+//.then is used to print out
 kiratsReadFile().then(onDone);
 
 
