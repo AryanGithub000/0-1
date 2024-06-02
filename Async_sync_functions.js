@@ -50,14 +50,18 @@ const fs = require("fs"); //file system use here
 //async call
 //called later as takes time to exe
 //goes here last mei as 
+//a.txt is our file we use
 fs.readFile("a.txt","utf-8",function(err,data){
-    console.log(data);
+    console.log(data); //prints the data of the file   
+ //executes at the end as async call
 })
 
 console.log("HI"); //runs first as sync call 
 
 let a=0;
+
 //takes very long, longer than the file read
+//this loop runs before HI there 2 and takes a while to run 
 for(let i=0;i<1000000000;i++){
     a++;
 }
