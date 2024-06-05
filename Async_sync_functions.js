@@ -81,3 +81,30 @@ console.log("Hi there 2");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//another example 
+function onDone(content){
+  
+}
+readFile("a.txt");
+
+console.log("hi there");
+
+
+
