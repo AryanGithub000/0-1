@@ -40,3 +40,36 @@ function onDone(data) {
 kiratsReadFile().then(onDone);
 
 
+
+//callnacks are repitive and can lead to callback hells
+//hence promises make it slighly cleaner than them
+
+
+
+//async function
+//return undefined
+function myOwnSetTimeout(callback,duration){
+    setTimeout(callback,duration);
+}
+
+//dont accept the callback here when promisifying the callback
+function promisifiedMyOwnSetTimeout(duration){
+    //syntax for promise
+    //resolve? -> way to call is different 
+    const p=new Promise(function(resolve){
+        //after duration calls resolve
+        setTimeout(resolve,duration);
+    });
+
+
+    return p; //return the promise
+    //promise is just a class
+}
+
+//async await chaining
+//promise reduces callback hell
+const ans=promisifiedMyOwnSetTimeout(1000); 
+//.then calls it after done
+ans.then(function(){
+    console.log("Timeout is done");
+})
