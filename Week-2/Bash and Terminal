@@ -1,3 +1,6 @@
+Bash -> runs files
+Terminal -> place for CLI
+
 cd Desktop
 cd .. (go back a level)
 cd ../.. (go back 2 levels)
@@ -10,3 +13,7 @@ ls -> list all stuff
 
 mkdir filename -> make directory 
 touch -> create a new file
+
+nvm -> node version manage -> obsolete
+basically install from web
+
