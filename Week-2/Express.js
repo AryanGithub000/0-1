@@ -1,3 +1,5 @@
+//Creates a HTTP server
+//go to localhost:3000 to run
 const express = require("express");
 const app = express();
 
