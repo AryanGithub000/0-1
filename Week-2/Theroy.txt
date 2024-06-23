@@ -24,4 +24,5 @@
 //Bun -> competition of Node.js
 //written in Zig -> v fast language
 
-
+//HTTP Request
+//GET, POST, PUT, DELETE
