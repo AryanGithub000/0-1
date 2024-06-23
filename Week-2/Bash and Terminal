@@ -1,1 +1,12 @@
+cd Desktop
+cd .. (go back a level)
+cd ../.. (go back 2 levels)
 
+pwd (present working directory)
+
+use mnt also in WSL -> refer saved video YT
+
+ls -> list all stuff
+
+mkdir filename -> make directory 
+touch -> create a new file
