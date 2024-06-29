@@ -1,0 +1,50 @@
+//map filter arrow
+
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+// function sum(a,b){
+//     return a+b;
+// }
+
+// const sum=(a,b)=>{
+//     return a+b;
+// }
+
+//same hai
+
+//Q1. Given an aray , give me a new array where all values are multiplied by 2
+//[1,2,3] => [2,4,6]
+
+// const input=[1,2,3];
+// const newArray=[];
+
+// for(let i=0;i<input.length;i++){
+//     newArray.push(input[i] *2);
+// }
+// console.log(newArray);
+
+//to make it cleaner 
+// const input = [1, 2, 3];
+// const newArray = input.map(value => value * 2);
+// console.log(newArray); // [2, 4, 6]
+
+
+//filter to get even
+// const arr=[1,2,3,4,5,6];
+// const newArr=[];
+// for(let i=0;i<arr.length;i++){
+//     if(arr[i]%2==0){
+//         newArr.push(arr[i]);
+//     }
+// }
+// console.log(newArr);
+
+//better way using filter
+//  const input = [1, 2, 3,4,5,6];
+//  const newArray = input.filter(value => value % 2 === 0);
+//  console.log(newArray); // [2, 4, 6]
+
+//arrows func
+
+
