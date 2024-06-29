@@ -1,0 +1,13 @@
+//Git/Github 
+
+use wsl in CMD line
+then use git to access git and check version control etc
+
+ls -> check files
+cd -> go in path
+cd .. -> go back a step
+
+git init -> initializes git in your project folder
+ls .git -> . means a hidden folder and we can access like this
+
+
