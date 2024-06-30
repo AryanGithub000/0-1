@@ -10,4 +10,32 @@ cd .. -> go back a step
 git init -> initializes git in your project folder
 ls .git -> . means a hidden folder and we can access like this
 
+touch -> creates a file
+
+git status -> checks whether a file will be pushed to Github 
+also verifies whether it will be added at the current date/time etc
+
+but we want ppl to know we changed things so and not have untracked files
+
+git add filename -> adds to history and now can be saved after this 
+
+git commit -m "file added or sany text to show" -> commits the file
+
+cat fimename -> prints what is in the file in CLI
+
+now if i use git status it shows that the file is modified
+so we use git add . to save it
+
+
+
+git log -> gets the log of history and changes made by user on the file
+rm -rf filename -> removes the file
+
+git reset CODE -> code is a long reference no of the transaction that was done and we can use to rollback to a certain part of hostory from there
+this changes the master and all commits above this are at the UNSTAGED area.
+
+git stash -> used to store as a stash and not exactly in the main root folder 
+
+git stash pop -> gets all from unstaged to staging area 
+
 
