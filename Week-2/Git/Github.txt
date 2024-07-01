@@ -13,7 +13,7 @@ ls .git -> . means a hidden folder and we can access like this
 touch -> creates a file
 
 git status -> checks whether a file will be pushed to Github 
-also verifies whether it will be added at the current date/time etc
+also verifies whether it will be added at the current date/time etc and put on staging area currently
 
 but we want ppl to know we changed things so and not have untracked files
 
@@ -35,7 +35,47 @@ git reset CODE -> code is a long reference no of the transaction that was done a
 this changes the master and all commits above this are at the UNSTAGED area.
 
 git stash -> used to store as a stash and not exactly in the main root folder 
+now all files we have stashed from woeking directory to use later on
 
-git stash pop -> gets all from unstaged to staging area 
+git stash pop -> gets all from unstaged to staging area and now can use them
+
+git stash clear -> remove the files in our stash and they are gone now puffff
+
+git remote add origin "github link" ->  Adds a remote location to repo
+git remote -v -> checks and adds the fetch and push
+git push origin master -> pushed to main repo
+//this creates the REPO
+
+all the code pushed is on a new branch but not on default branch as it is not finalized yet
+
+git clone FILENAME -> clones and forks files
+copy of the folder in my file 
+
+git remote add upstream -> specifies from where i have forked the project/folder etc
+
+PULL Requests
+
+git branch ANYNAME -> create a new branch
+git checkout NAME -> move head to that branch now to work upon
+
+
+Now to merge this branch into the main branch of our project
+So how to do that??
+
+git commit -m aryan -> new branch named aryan 
+git commit -m "files added on aryan branch"
+
+now this can be merged on the main pull request to master branch
+
+git push origin aryan -f -> pushes into origin master 
+
+NOW if i want to update my fork part wala code to the latest as per code base then go to upstream
+
+
+Q. What are merge ccinflicts?
+-> 
+
+
+
 
 
