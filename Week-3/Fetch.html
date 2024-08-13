@@ -1,0 +1,32 @@
+<!--
+  Hit RUN to see this project in action!
+  
+  This project will auto-refresh as you edit the HTML, CSS and JS. See README.md for more info (including how to disable auto-refresh and install packages).
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<!-- The fetch call is used to call the backend par likha hua functions and connects to the end points  -->
+<body>
+  <script>
+    async function getAnimalData(){
+      const response = await fetch('https://api.thecatapi.com/v1/images/search');
+      const finalData=response.json();
+      console.log(finalData);
+    }
+      
+  </script>
+  
+  <button onclick="getAnimalData()">Get Animal Data</button>
+
+</body>
+
+</html>
