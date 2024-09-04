@@ -1,0 +1,25 @@
+<html>
+    <script>
+        function populateDiv(){
+            //DOM
+            const a=document.getElementById("firstNumber").value;
+            const b=document.getElementById("secondNumber").value;
+            
+            const element= document.getElementById("finalSum");
+            console.log(element); //type is not text it is a DOM Object 
+            //and we can access multiple functions on this DOM 
+
+            element.innerHTML= parseInt(a) + parseInt(b);
+        }
+    </script>
+
+    <body>
+        <input id="firstNumber" type="text" placeholder="First Number"></input>
+        <br><br>
+        <input id="secondNumber" type="text" placeholder="Second Number"></input>
+        <br><br>
+        <button onclick="populateDiv()">Calclate Sum</button>
+
+        <div id="finalSum"></div>
+    </body>
+</html>
