@@ -9,8 +9,30 @@
             console.log(element); //type is not text it is a DOM Object 
             //and we can access multiple functions on this DOM 
 
-            element.innerHTML= parseInt(a) + parseInt(b);
+            //element.innerHTML= parseInt(a) + parseInt(b);
+            //Hit a backend server to perform our operation 
+            //How to send a req??
+            //use fetch to hit it in the background 
+            fetch("http://localhost:8080/sum?a="+a+"&b="+b+" ")
+                .then(function(res){
+                    console.log(res);
+
+                    res.text()
+                        .then(function(ans){
+                            document.getElementById("finalSum").innerHTML=ans;
+                        })
+                })
         }
+
+        async function populateDiv2(){
+            const a= document.getElementById("firstNumber").value;
+            const b= document.getElementById("secondNumber").value;
+
+            const response= await fetch("http://localhost:8080/sum?a="+a+"&b="+b+" ")
+            const ans= await response.text();
+            document.getElementById("finalSum").innerHTML=ans;
+        }
+
     </script>
 
     <body>
@@ -18,7 +40,7 @@
         <br><br>
         <input id="secondNumber" type="text" placeholder="Second Number"></input>
         <br><br>
-        <button onclick="populateDiv()">Calclate Sum</button>
+        <button onclick="populateDiv2()">Calclate Sum</button>
 
         <div id="finalSum"></div>
     </body>
