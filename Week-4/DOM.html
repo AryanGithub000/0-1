@@ -13,6 +13,12 @@
             //Hit a backend server to perform our operation 
             //How to send a req??
             //use fetch to hit it in the background 
+            //can use axios to make it easier
+            // const response = await axios.get("http://localhost:8080/sum?a="+a+"&b="+b+" ")
+            // const ans=response.data
+            // document.getElementById("finalSum").innerHTML=ans;
+            
+            
             fetch("http://localhost:8080/sum?a="+a+"&b="+b+" ")
                 .then(function(res){
                     console.log(res);
