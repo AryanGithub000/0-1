@@ -45,3 +45,84 @@
         <div id="finalSum"></div>
     </body>
 </html>
+
+We can also use debouncing as well when we dont want to get input from user after buttin
+so like after 10ms of inactive user it send req to backend
+
+
+
+
+<html>
+    <script>
+        //once call
+        function debouncePopulateDiv(){
+            //DEBOUNCING where it stops for 100ms to not process too much calls to backend
+            //has to delay the call to populateDiv until not been called for 100ms
+            //and called atleast once
+            // setTimeout(function(){
+            //     populateDiv()
+            // },100);
+
+            //how do you cancel a clock?
+            //clearTimeout
+            const timeout = setTimeout(function(){
+                populateDiv()
+            },100);
+            clearTimeout(timeout) 
+
+            populateDiv();
+        }
+
+        function populateDiv(){
+            //DOM
+            const a=document.getElementById("firstNumber").value;
+            const b=document.getElementById("secondNumber").value;
+            
+            const element= document.getElementById("finalSum");
+            console.log(element); //type is not text it is a DOM Object 
+            //and we can access multiple functions on this DOM 
+
+            //element.innerHTML= parseInt(a) + parseInt(b);
+            //Hit a backend server to perform our operation 
+            //How to send a req??
+            //use fetch to hit it in the background 
+            fetch("http://localhost:8080/sum?a="+a+"&b="+b+" ")
+                .then(function(res){
+                    console.log(res);
+
+                    res.text()
+                        .then(function(ans){
+                            document.getElementById("finalSum").innerHTML=ans;
+                        })
+                })
+        }
+
+        async function populateDiv2(){
+            const a= document.getElementById("firstNumber").value;
+            const b= document.getElementById("secondNumber").value;
+
+            const response= await fetch("http://localhost:8080/sum?a="+a+"&b="+b+" ")
+            const ans= await response.text();
+            document.getElementById("finalSum").innerHTML=ans;
+        }
+
+        async function populateDiv3(){
+            const p= document.getElementById("principle").value;
+            const r=document.getElementById("rate").value;
+            const t=document.getElementById("time").value;
+
+            const response= await fetch("http://localhost:8080/interest?p="+p+"&r="+r+"&t="+t+" ")
+            const ans= await response.text(); //get text from backend site we are hitting 
+            document.getElementById("finalInterest").innerHTML=ans;
+        }
+
+    </script>
+
+    <body>
+        <input onclick="debouncePopulateDiv()"  id="firstNumber" type="text" placeholder="First Number"></input>
+        <br><br>
+        <input onclick="debouncePopulateDiv()" id="secondNumber" type="text" placeholder="Second Number"></input>
+        <br><br>
+        <div id="finalSum"></div>
+    </body>
+</html>
