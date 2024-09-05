@@ -1,0 +1,32 @@
+//till now only have used .innerHTML in DOM 
+//here we will use .appendChild in todo app 
+
+<html>
+    <script>
+        function addTodo(){
+            const title= document.getElementById("title").value;
+            const description= document.getElementById("description").value;
+            const originalHTML= document.getElementById("container").innerHTML;
+
+            document.getElementById("container")
+                .innerHTML=originalHTML+`
+                <div>
+                    <div>${title}</div>
+                    <div>${description}</div>
+                    <button>Mark as Done</button>
+                <div>
+                `
+            
+        }
+    </script>
+
+    <div>
+        <input id="title" type="text" placeholder="title"></input> <br><br>
+        <input id="description" type="text" placeholder="description"></input><br><br>
+        <button onclick="addTodo()">Add Todo</button><br><br>
+
+        <div id="container">
+
+        </div>
+    </div>
+</html>
