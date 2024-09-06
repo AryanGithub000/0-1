@@ -1,0 +1,56 @@
+<html>
+
+    <div>
+        <input id="title" type="text" placeholder="title"></input><br><br>
+        <input id="description" type="text" placeholder="description"></input><br><br>
+
+        <div id="container">
+            <!-- Container for todos -->
+        </div>
+    </div>
+
+    <script>
+        function createChild(title, description, id) {
+            const child = document.createElement("div"); // Create a new div for the todo
+
+            const firstGrandChild = document.createElement("div"); // Create a div for title
+            firstGrandChild.innerHTML = title;
+
+            const secondGrandChild = document.createElement("div"); // Create a div for description
+            secondGrandChild.innerHTML = description;
+
+            const thirdGrandChild = document.createElement("button"); // Create a button
+            thirdGrandChild.innerHTML = "Mark as Done";
+            thirdGrandChild.setAttribute("onclick", `markAsDone(${id})`); // Set the onclick attribute to mark the todo as done
+
+            child.appendChild(firstGrandChild); // Append title to the child div
+            child.appendChild(secondGrandChild); // Append description to the child div
+            child.appendChild(thirdGrandChild); // Append the button to the child div
+
+            child.setAttribute("id", id); // Set the id of the child div to the todo's id
+            return child; // Return the created child div
+        }
+
+        //Q1. Get from state and then make todo
+        //State we are getting from backend or somewhere
+        //we make a read only UI
+        //state is an array 
+        //every elt will have title, description and id
+
+        function updateDOMAccToState(state){
+            const parent=document.getElementById("container");
+            parent.innerHTML="";
+            for(let i=0;i<state.length;i++){
+                const child= createChild(state[i].title,state[i].description,state[i].id);
+                parent.appendChild(child);
+            }
+        }
+        //Helps to get from backend every 5 seconds
+        window.setInterval(async function(){
+          const res=await fetch("link backend");
+          const json=await res.json();
+          updateDOMAccToState(json.todos);
+        },5000)
+    </script>
+
+</html>
