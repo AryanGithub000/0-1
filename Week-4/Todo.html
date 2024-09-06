@@ -1,32 +1,53 @@
-//till now only have used .innerHTML in DOM 
-//here we will use .appendChild in todo app 
-
 <html>
     <script>
-        function addTodo(){
-            const title= document.getElementById("title").value;
-            const description= document.getElementById("description").value;
-            const originalHTML= document.getElementById("container").innerHTML;
+        let globalId = 0; // Initialize globalId
 
-            document.getElementById("container")
-                .innerHTML=originalHTML+`
-                <div>
-                    <div>${title}</div>
-                    <div>${description}</div>
-                    <button>Mark as Done</button>
-                <div>
-                `
-            
+        function markAsDone(todoId) {
+            const parent = document.getElementById(todoId);
+            parent.children[2].innerHTML = "Done!"; // Update button text to "Done!"
+        }
+
+        function createChild(title, description, id) {
+            const child = document.createElement("div"); // Create a new div for the todo
+
+            const firstGrandChild = document.createElement("div"); // Create a div for title
+            firstGrandChild.innerHTML = title;
+
+            const secondGrandChild = document.createElement("div"); // Create a div for description
+            secondGrandChild.innerHTML = description;
+
+            const thirdGrandChild = document.createElement("button"); // Create a button
+            thirdGrandChild.innerHTML = "Mark as Done";
+            thirdGrandChild.setAttribute("onclick", `markAsDone(${id})`); // Set the onclick attribute to mark the todo as done
+
+            child.appendChild(firstGrandChild); // Append title to the child div
+            child.appendChild(secondGrandChild); // Append description to the child div
+            child.appendChild(thirdGrandChild); // Append the button to the child div
+
+            child.setAttribute("id", id); // Set the id of the child div to the todo's id
+            return child; // Return the created child div
+        }
+
+        function addTodo() {
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const parent = document.getElementById("container");
+
+            if (title && description) { // Ensure both title and description are provided
+                parent.appendChild(createChild(title, description, globalId++)); // Append the created child to the container
+            } else {
+                alert("Please enter both title and description!"); // Alert if fields are missing
+            }
         }
     </script>
 
     <div>
-        <input id="title" type="text" placeholder="title"></input> <br><br>
+        <input id="title" type="text" placeholder="title"></input><br><br>
         <input id="description" type="text" placeholder="description"></input><br><br>
         <button onclick="addTodo()">Add Todo</button><br><br>
 
         <div id="container">
-
+            <!-- Container for todos -->
         </div>
     </div>
 </html>
