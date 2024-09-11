@@ -1,0 +1,6 @@
+SQL Databases where we need to tell the DB what the users table looks like
+eg. Users={age, name, city, etc...}
+
+Mongoose -> Send me anything and in any order you can tell the data 
+Database is chill 
+
